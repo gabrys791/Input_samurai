@@ -14,16 +14,25 @@ public class Enemy : MonoBehaviour
     private HealthManager playerHealth;
     private HealthManager enemyHealth;
     private bool isFacingRight;
+    private Animator anim;
     void Start()
     {
         enemyHealth = GetComponent<HealthManager>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         cooldownTimer += Time.deltaTime;
-        Attack();
+        if(isPlayer())
+        {
+            if (cooldownTimer >= attackCooldown)
+            {
+                anim.SetTrigger("damage");
+                cooldownTimer = 0f;
+            }
+        }
         Die();
     }
     private void Attack()
@@ -31,6 +40,7 @@ public class Enemy : MonoBehaviour
         if(cooldownTimer >= attackCooldown)
         {
             DamagePlayer();
+            anim.SetTrigger("damage");
             cooldownTimer = 0f;
         }
     }

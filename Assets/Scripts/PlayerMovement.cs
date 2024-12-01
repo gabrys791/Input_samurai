@@ -47,8 +47,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        //scoreCount.text = "Score: " + score.ToString();
-        healthCount.text = "Health: " + health.currentHealth.ToString();
+        scoreCount.text = "Score: " + score.ToString();
+        //healthCount.text = "Health: " + health.currentHealth.ToString();
     }
     private void FixedUpdate()
     {

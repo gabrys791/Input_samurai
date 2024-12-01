@@ -10,10 +10,12 @@ public class EnemyPatrol : MonoBehaviour
     private Rigidbody2D rb;
     private Transform currentPoint;
     public float speed;
+    private Animator anim;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentPoint = pointb.transform;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             rb.velocity = new Vector2(-speed, 0);
         }
+        anim.SetBool("moving", rb.velocity.magnitude > 0);
         if(Vector2.Distance(transform.position,currentPoint.position) < 0.5f && currentPoint == pointa.transform)
         {
             Flip();

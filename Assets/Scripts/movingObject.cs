@@ -46,7 +46,6 @@ public class movingObject : MonoBehaviour
         }
     }
 
-    // Usuniêcie gracza z hierarchii platformy
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
