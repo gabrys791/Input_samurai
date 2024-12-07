@@ -30,12 +30,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask obstacleLayer;
     SpriteRenderer spriteRenderer;
-    public int score = 0;
-    public Text scoreCount;
     private Animator animator;
     private HealthManager health;
     public Text healthCount;
-    private string controlScheme;
+    public string controlScheme { get; private set; }
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -47,8 +45,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        scoreCount.text = "Score: " + score.ToString();
-        //healthCount.text = "Health: " + health.currentHealth.ToString();
+
     }
     private void FixedUpdate()
     {

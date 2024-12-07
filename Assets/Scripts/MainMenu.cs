@@ -34,5 +34,13 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetString("ControlScheme", "DCSA");
         PlayerPrefs.Save();
     }
-    
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    public void Back()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }

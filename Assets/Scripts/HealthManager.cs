@@ -9,7 +9,7 @@ public class HealthManager : MonoBehaviour
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
-
+    public Respawn respawn;
     private void Awake()
     {
         currentHealth = startingHealth;
@@ -31,9 +31,22 @@ public class HealthManager : MonoBehaviour
                 dead = true;
                 anim.SetTrigger("die");
                 GetComponent<PlayerMovement>().enabled = false;
+                GetComponent<PlayerCombat>().enabled = false;
+                StartCoroutine(HandleDeath());
             }
             
         }
+    }
+    private IEnumerator HandleDeath()
+    {
+        yield return new WaitForSeconds(2f);
+        transform.position = respawn.respawnPoint.transform.position;
+        GetComponent<PlayerMovement>().enabled = true;
+        GetComponent<PlayerCombat>().enabled = true;
+        anim.ResetTrigger("die");
+        currentHealth = startingHealth;
+        anim.Play("Idle");
+        dead = false;
     }
     void Update()
     {
