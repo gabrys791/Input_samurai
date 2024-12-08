@@ -114,6 +114,10 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetKey(KeyCode.F)) return 1f;
                 if (Input.GetKey(KeyCode.S)) return -1f;
                 break;
+            case "IJKM":
+                if(Input.GetKey(KeyCode.K)) return 1f;
+                if (Input.GetKey(KeyCode.J)) return -1f;
+                break;
         }
         return 0f;
     }
@@ -131,6 +135,8 @@ public class PlayerMovement : MonoBehaviour
                 return Input.GetKey(KeyCode.S);
             case "SDFSpace":
                 return Input.GetKey(KeyCode.Space);
+            case "IJKM":
+                return Input.GetKey(KeyCode.I);
         }
         return Input.GetKey(KeyCode.W);
     }
@@ -211,10 +217,12 @@ public class PlayerMovement : MonoBehaviour
                 return Input.GetKey(KeyCode.D);
             case "DCSA":
                 return Input.GetKey(KeyCode.D);
+            case "IJKM":
+                return Input.GetKey(KeyCode.M);
         }
         return Input.GetKey(KeyCode.S);
     }
-    private void Climb() //TODO: zrobiæ GETClimb do inputu
+    private void Climb()
     {
         if(isWalled() && GetClimb() && climbTimer <= 1.5f)
         {
@@ -240,6 +248,8 @@ public class PlayerMovement : MonoBehaviour
                 return (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.F));
             case "DCSA":
                 return (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.C));
+            case "IJKM":
+                return (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.K));
         }
         return (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D));
     }

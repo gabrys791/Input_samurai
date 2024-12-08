@@ -34,6 +34,10 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetString("ControlScheme", "DCSA");
         PlayerPrefs.Save();
     }
+    public void SetIJKM()
+    {
+        PlayerPrefs.SetString("ControlScheme", "IJKM");
+    }
     public void Quit()
     {
         Application.Quit();

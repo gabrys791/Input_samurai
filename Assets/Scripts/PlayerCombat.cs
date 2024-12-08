@@ -27,7 +27,7 @@ public class PlayerCombat : MonoBehaviour
     }
     public void Attack()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && attackCooldown >= 1f)
+        if(Input.GetKeyDown(KeyCode.Mouse0) && attackCooldown >= 1f)
         {
             attackCooldown = 0f;
             if(attack == true)
