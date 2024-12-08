@@ -24,7 +24,7 @@ public class HealthManager : MonoBehaviour
             anim.SetTrigger("takeDmg");
             
         }
-        else
+        else if(currentHealth <= 0)
         {
             if(!dead)
             {

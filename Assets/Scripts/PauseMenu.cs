@@ -19,8 +19,6 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
-        Debug.Log(isPaused);
-
     }
     public void Pause()
     {  
@@ -37,5 +35,6 @@ public class PauseMenu : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
+        isPaused = false;
     }
 }
