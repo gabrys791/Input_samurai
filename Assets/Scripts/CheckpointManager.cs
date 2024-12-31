@@ -6,15 +6,15 @@ public class CheckpointManager : MonoBehaviour
 {
     private Respawn respawn;
     private BoxCollider2D boxCollider2D;
-
+    private Respawn[] respawns;
     void Awake()
     {
-        respawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<Respawn>();
+        respawns = GameObject.FindObjectsOfType<Respawn>();
         boxCollider2D = GetComponent<BoxCollider2D>();
     }
     void Start()
     {
-        
+ 
     }
 
     // Update is called once per frame
@@ -26,7 +26,10 @@ public class CheckpointManager : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            respawn.respawnPoint = this.gameObject;
+            foreach(Respawn respawn in respawns)
+            {
+                respawn.respawnPoint = this.gameObject;
+            }
             boxCollider2D.enabled = false;
         }
     }
