@@ -5,5 +5,29 @@ The project explores game ergonomics, motor adaptation, and input paradigms by l
 
 ## Playable Build
 
-**Play in Browser (WebGL): https://gabrys790.itch.io/input-samurai
+Play in Browser (WebGL): https://gabrys790.itch.io/input-samurai
 
+## Core Game Mechanics & Systems
+
+### 1. Dynamic Control Schemes & Ergonomics Engine
+Implemented an in-game input switching architecture supporting 6 distinct control layouts, tracking player adaptation and memory across sessions:
+* **WASD** (Modern industry standard)
+* **ESDF** (Alternative standard with wider key-reach, popular in *Tribes 2* and early *Quake*)
+* **DCAS / ASDC** (Ergonomic layout popularized by Bungie's *Marathon*)
+* **SDFSpace** (Linear 3-finger layout used in early 3D shooters and fighting games)
+* **5678** (Numpad navigation layout from *ZX Spectrum / Sinclair*)
+* **IJKM** (8-bit directional convention popularized by *Apple II*)
+
+### 2. Advanced 2D Character Controller
+* **Core Movement:** Horizontal velocity clamping, gravity handling, and snappy jump physics.
+* **Wall Mechanics:** Wall-sliding, wall-climbing with an integrated cooldown manager, and momentum-based wall jumping.
+* **Dash System:** Timed dash mechanic (2-second cooldown) to clear hazardous gaps.
+* **Combat & Animation:** Melee combo system (2-stage attack animation), cooldown timers, hit detection, visual hit-flashing, and synchronized audio feedback.
+
+### 3. Enemy AI & Behaviors
+* **Goblin (Ground Patrol):** Waypoint-based patrol logic switching to immediate attack behavior upon detecting the player in frontal line-of-sight.
+* **Bat (Flying Pursuer):** Radial distance-based detection triggering continuous player tracking and airborne dive attacks.
+
+### 4. Non-Linear Level Progression (Artifact Spawner)
+* **Anti-Linearity Spawning Algorithm:** Semi-randomized procedural artifact spawner (`ArtefactSpawner.cs`) distributing mandatory collectibles across predetermined anchor points while preventing duplicate instantiations.
+* **Exploration Rewards:** Optional secondary crystals encouraging level exploration and score tracking.
