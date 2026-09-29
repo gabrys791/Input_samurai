@@ -31,3 +31,12 @@ Implemented an in-game input switching architecture supporting 6 distinct contro
 ### 4. Non-Linear Level Progression (Artifact Spawner)
 * **Anti-Linearity Spawning Algorithm:** Semi-randomized procedural artifact spawner (`ArtefactSpawner.cs`) distributing mandatory collectibles across predetermined anchor points while preventing duplicate instantiations.
 * **Exploration Rewards:** Optional secondary crystals encouraging level exploration and score tracking.
+
+## Architecture & Technical Highlights
+
+* **Engine:** Unity (Version 2022.3 LTS)
+* **Language:** C#
+* **Input Architecture:** Custom wrapper around Unity's `Input Manager` mapping dynamic axis/key bindings based on persistent user preferences (`PlayerPrefs`).
+* **Game Loop & State:** Event-driven checkpoints Lantern checkpoints, health management, level transition checks, and completion timer tracking.
+* **QA & Black-Box Testing:** Conducted black-box playtests with user feedback surveys measuring cognitive load, muscle memory adaptation, and layout ergonomics across difficulty scales.
+* **Platform:** WebGL & Windows Desktop.
